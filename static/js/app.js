@@ -20,15 +20,18 @@ let trace1 = {
   orientation: "h"
 };
 
+let sampleVals = selectionOne.sample_values;
+let otuIds = selectionOne.otu_ids;
+
 let trace2 = {
   x: selectionOne.otu_ids,
   y: selectionOne.sample_values,
   text: selectionOne.otu_labels,
   mode: "markers",
   marker: {
-    color: [selectionOne.otu_ids],
-    // size: [selectionOne.sample_values]
-    size: [100,90,80,70,60,50,40,30,20,10]
+    color: otuIds,
+    size: sampleVals,
+    sizeref: 1.5
   }
 };
 
@@ -91,7 +94,7 @@ function demographicInfo(sample){
 
   for (key in selectionOne){
     metaInput.append("h6")
-    .text(`${key}:${selectionOne[key]}`);
+    .text(`${key}: ${selectionOne[key]}`);
   };
 
   });
