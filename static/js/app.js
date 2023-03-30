@@ -20,7 +20,7 @@ let trace1 = {
   text: selectionOne.otu_labels.slice(0,10).reverse(),
   type: "bar",
   orientation: "h"
-};
+}
 
 // Create variables for bubble chart formatting
 let sampleVals = selectionOne.sample_values;
@@ -28,8 +28,8 @@ let otuIds = selectionOne.otu_ids;
 
 // Create trace for bubble chart
 let trace2 = {
-  x: selectionOne.otu_ids,
-  y: selectionOne.sample_values,
+  x: otuIds,
+  y: sampleVals,
   text: selectionOne.otu_labels,
   mode: "markers",
   marker: {
@@ -37,13 +37,14 @@ let trace2 = {
     size: sampleVals,
     sizeref: 1.5
   }
-};
+}
 
 // Set size of bubble chart
 let layout2 = {
   height: 400,
-  width: 1000
-};
+  width: 1000,
+  xaxis: {title: 'OTU ID'}
+}
 
 // Data trace array
 let traceDataOne = [trace1];
@@ -75,6 +76,23 @@ function init(){
 
   };
 
+  // Generate plots and demographic info window with the first sample id in the dataset
+  createPlot(value);
+  demographicInfo(value);
+  
+});
+}
+
+// Call init function so that dashboard presents data when first visited
+init();
+
+// Create function that is called when a new dropdown menu item is selected
+function optionChanged(newSample) {
+  createPlot(newSample);
+  demographicInfo(newSample);
+}
+
+
   // Create function that generates data for demographic info window
   function demographicInfo(sample){
     // Read in JSON data
@@ -98,21 +116,3 @@ function init(){
   
     });
   }
-
-  // Generate plots and demographic info window with the first sample id in the dataset
-  createPlot(value);
-  demographicInfo(value);
-  
-});
-}
-
-// Call init function so that dashboard presents data when first visited
-init();
-
-// Create function that is called when a new dropdown menu item is selected
-function optionChanged(newSample) {
-  createPlot(newSample);
-  demographicInfo(newSample);
-}
-
-
