@@ -3,7 +3,7 @@ Module 14 Challenge
 
 Researchers at North Carolina State University undertook a study into the bacteria and arachaea that can be found in the belly buttons of humans and published their research findings in 2012. The dataset compiled during this research process will be referred to as the 'Belly Button Biodiversity dataset'.
 
-Using the Belly Button Biodiversity dataset, we have created an interactive, web-based dashboard which allows its users to analyse the dataset on a sample by sample (or individual by individual basis).
+Using the Belly Button Biodiversity dataset, we have created an interactive, web-based dashboard which allows its users to analyse the dataset on a sample by sample (or individual by individual basis). The interactive dashboard can be found at the following url: https://oli124.github.io/belly-button-challenge/
 
 This dashboard was created using the following, all of which can be found in the projects repository (https://github.com/oli124/belly-button-challenge.git):
 1. The Belly Button Biodiversity dataset ('samples.json')
